@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>numba_dppy.dppy_parfor_diagnostics module &mdash; numba-dppy 0.12.0+254.g0b39be7 documentation</title>
+  <title>numba_dppy.dpctl_iface.dpctl_function_types module &mdash; numba-dppy 0.12.0+254.g0b39be7 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -67,9 +67,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>numba_dppy.dppy_parfor_diagnostics module</li>
+      <li>numba_dppy.dpctl_iface.dpctl_function_types module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/apidoc/numba_dppy.dppy_parfor_diagnostics.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/apidoc/numba_dppy.dpctl_iface.dpctl_function_types.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -77,23 +77,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-numba_dppy.dppy_parfor_diagnostics">
-<span id="numba-dppy-dppy-parfor-diagnostics-module"></span><h1>numba_dppy.dppy_parfor_diagnostics module<a class="headerlink" href="#module-numba_dppy.dppy_parfor_diagnostics" title="Permalink to this headline"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="numba_dppy.dppy_parfor_diagnostics.ExtendedParforDiagnostics">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">numba_dppy.dppy_parfor_diagnostics.</span></span><span class="sig-name descname"><span class="pre">ExtendedParforDiagnostics</span></span><a class="headerlink" href="#numba_dppy.dppy_parfor_diagnostics.ExtendedParforDiagnostics" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">numba.parfors.parfor.ParforDiagnostics</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="numba_dppy.dppy_parfor_diagnostics.ExtendedParforDiagnostics.dump">
-<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#numba_dppy.dppy_parfor_diagnostics.ExtendedParforDiagnostics.dump" title="Permalink to this definition"></a></dt>
+  <section id="module-numba_dppy.dpctl_iface.dpctl_function_types">
+<span id="numba-dppy-dpctl-iface-dpctl-function-types-module"></span><h1>numba_dppy.dpctl_iface.dpctl_function_types module<a class="headerlink" href="#module-numba_dppy.dpctl_iface.dpctl_function_types" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="numba_dppy.dpctl_iface.dpctl_function_types.dpctl_event_delete">
+<span class="sig-prename descclassname"><span class="pre">numba_dppy.dpctl_iface.dpctl_function_types.</span></span><span class="sig-name descname"><span class="pre">dpctl_event_delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numba_dppy.dpctl_iface.dpctl_function_types.dpctl_event_delete" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="numba_dppy.dppy_parfor_diagnostics.ExtendedParforDiagnostics.print_auto_offloading">
-<span class="sig-name descname"><span class="pre">print_auto_offloading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#numba_dppy.dppy_parfor_diagnostics.ExtendedParforDiagnostics.print_auto_offloading" title="Permalink to this definition"></a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="numba_dppy.dpctl_iface.dpctl_function_types.dpctl_event_wait">
+<span class="sig-prename descclassname"><span class="pre">numba_dppy.dpctl_iface.dpctl_function_types.</span></span><span class="sig-name descname"><span class="pre">dpctl_event_wait</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numba_dppy.dpctl_iface.dpctl_function_types.dpctl_event_wait" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="numba_dppy.dpctl_iface.dpctl_function_types.dpctl_free_with_queue">
+<span class="sig-prename descclassname"><span class="pre">numba_dppy.dpctl_iface.dpctl_function_types.</span></span><span class="sig-name descname"><span class="pre">dpctl_free_with_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numba_dppy.dpctl_iface.dpctl_function_types.dpctl_free_with_queue" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="numba_dppy.dpctl_iface.dpctl_function_types.dpctl_get_current_queue">
+<span class="sig-prename descclassname"><span class="pre">numba_dppy.dpctl_iface.dpctl_function_types.</span></span><span class="sig-name descname"><span class="pre">dpctl_get_current_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numba_dppy.dpctl_iface.dpctl_function_types.dpctl_get_current_queue" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="numba_dppy.dpctl_iface.dpctl_function_types.dpctl_malloc_shared">
+<span class="sig-prename descclassname"><span class="pre">numba_dppy.dpctl_iface.dpctl_function_types.</span></span><span class="sig-name descname"><span class="pre">dpctl_malloc_shared</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numba_dppy.dpctl_iface.dpctl_function_types.dpctl_malloc_shared" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="numba_dppy.dpctl_iface.dpctl_function_types.dpctl_queue_memcpy">
+<span class="sig-prename descclassname"><span class="pre">numba_dppy.dpctl_iface.dpctl_function_types.</span></span><span class="sig-name descname"><span class="pre">dpctl_queue_memcpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numba_dppy.dpctl_iface.dpctl_function_types.dpctl_queue_memcpy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="numba_dppy.dpctl_iface.dpctl_function_types.dpctl_queue_wait">
+<span class="sig-prename descclassname"><span class="pre">numba_dppy.dpctl_iface.dpctl_function_types.</span></span><span class="sig-name descname"><span class="pre">dpctl_queue_wait</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#numba_dppy.dpctl_iface.dpctl_function_types.dpctl_queue_wait" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </section>
 

@@ -15,7 +15,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
-        <title>numba_dpex.core.config - numba-dpex documentation</title>
+        <title>numba_dpex.core.config - numba-dpex 0.12.0+1605.g013be2e3 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
@@ -134,7 +134,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">numba-dpex  documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">numba-dpex 0.12.0+1605.g013be2e3 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -157,7 +157,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../index.html">
   
   
-  <span class="sidebar-brand-text">numba-dpex  documentation</span>
+  <span class="sidebar-brand-text">numba-dpex 0.12.0+1605.g013be2e3 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -190,7 +190,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../user_guide/debugging/common_issues.html">Common issues and tips</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../user_guide/config.html">Configuration Options for <code class="docutils literal notranslate"><span class="pre">numba-dpex</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -199,16 +198,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../kernel_launcher/index.html">numba_dpex.core.kernel_launcher</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../config_options.html">Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supported_sycl_features.html">SYCL* and numba-dpex Feature Comparison</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../experimental/index.html">Experimental Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../useful_links.html">Useful links</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contribution_guide.html">Contribution Guide</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Misc Notes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">List of examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release-notes.html">Release Notes</a></li>
 </ul>
@@ -247,74 +243,69 @@
         <article role="main">
           <section id="module-numba_dpex.core.config">
 <span id="numba-dpex-core-config"></span><h1>numba_dpex.core.config<a class="headerlink" href="#module-numba_dpex.core.config" title="Link to this heading">#</a></h1>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-</section>
+<p>The config options are meant to provide extra information and tweak optimization
+configurations to help debug code generation issues.</p>
+<p>There are two ways of setting these config options:</p>
+<ul>
+<li><p>Config options can be directly set programmatically, <em>e.g.</em>,</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba_dpex.core.config</span> <span class="kn">import</span> <span class="n">DUMP_KERNEL_LLVM</span>
+
+<span class="n">DUMP_KERNEL_LLVM</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>The options can also be set globally using environment flags. The name of the
+environment variable for every config option is annotated next to its
+definition.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">NUMBA_DPEX_DUMP_KERNEL_LLVM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
 <section id="attributes">
 <h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h2>
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.SAVE_IR_FILES">
-<span class="sig-name descname"><span class="pre">SAVE_IR_FILES</span></span><a class="headerlink" href="#numba_dpex.core.config.SAVE_IR_FILES" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">SAVE_IR_FILES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[int,</span> <span class="pre">Save</span> <span class="pre">the</span> <span class="pre">IR</span> <span class="pre">files</span> <span class="pre">(LLVM</span> <span class="pre">and</span> <span class="pre">SPIRV-V)</span> <span class="pre">generated</span> <span class="pre">for</span> <span class="pre">each</span> <span class="pre">kernel</span> <span class="pre">to</span> <span class="pre">current</span> <span class="pre">directory,</span> <span class="pre">default</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">ENVIRONMENT</span> <span class="pre">FLAG:</span> <span class="pre">NUMBA_DPEX_SAVE_IR_FILES]</span></em><a class="headerlink" href="#numba_dpex.core.config.SAVE_IR_FILES" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.OFFLOAD_DIAGNOSTICS">
-<span class="sig-name descname"><span class="pre">OFFLOAD_DIAGNOSTICS</span></span><a class="headerlink" href="#numba_dpex.core.config.OFFLOAD_DIAGNOSTICS" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">OFFLOAD_DIAGNOSTICS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[int,</span> <span class="pre">Print</span> <span class="pre">diagnostic</span> <span class="pre">information</span> <span class="pre">for</span> <span class="pre">automatic</span> <span class="pre">offloading</span> <span class="pre">of</span> <span class="pre">parfor</span> <span class="pre">nodes</span> <span class="pre">to</span> <span class="pre">kernels,</span> <span class="pre">default</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">ENVIRONMENT</span> <span class="pre">FLAG:</span> <span class="pre">NUMBA_DPEX_OFFLOAD_DIAGNOSTICS]</span></em><a class="headerlink" href="#numba_dpex.core.config.OFFLOAD_DIAGNOSTICS" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.DEBUG">
-<span class="sig-name descname"><span class="pre">DEBUG</span></span><a class="headerlink" href="#numba_dpex.core.config.DEBUG" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DEBUG</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[int,</span> <span class="pre">Generates</span> <span class="pre">extra</span> <span class="pre">debug</span> <span class="pre">prints</span> <span class="pre">when</span> <span class="pre">set</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">non-zero</span> <span class="pre">value,</span> <span class="pre">default</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">ENVIRONMENT</span> <span class="pre">FLAG:</span> <span class="pre">NUMBA_DPEX_DEBUG]</span></em><a class="headerlink" href="#numba_dpex.core.config.DEBUG" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.DEBUGINFO_DEFAULT">
-<span class="sig-name descname"><span class="pre">DEBUGINFO_DEFAULT</span></span><a class="headerlink" href="#numba_dpex.core.config.DEBUGINFO_DEFAULT" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DEBUGINFO_DEFAULT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[int,</span> <span class="pre">Compiles</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">debug</span> <span class="pre">mode</span> <span class="pre">generating</span> <span class="pre">debug</span> <span class="pre">symbols</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">compiler</span> <span class="pre">IR.</span> <span class="pre">It</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">global</span> <span class="pre">way</span> <span class="pre">of</span> <span class="pre">setting</span> <span class="pre">the</span> <span class="pre">&quot;debug&quot;</span> <span class="pre">keyword</span> <span class="pre">for</span> <span class="pre">all</span> <span class="pre">numba_dpex.kernel</span> <span class="pre">and</span> <span class="pre">numba_dpex.device_func</span> <span class="pre">decorators</span> <span class="pre">used</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">program.,</span> <span class="pre">default</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">ENVIRONMENT</span> <span class="pre">FLAG:</span> <span class="pre">NUMBA_DPEX_DEBUGINFO]</span></em><a class="headerlink" href="#numba_dpex.core.config.DEBUGINFO_DEFAULT" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.DUMP_KERNEL_LLVM">
-<span class="sig-name descname"><span class="pre">DUMP_KERNEL_LLVM</span></span><a class="headerlink" href="#numba_dpex.core.config.DUMP_KERNEL_LLVM" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DUMP_KERNEL_LLVM</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[int,</span> <span class="pre">Writes</span> <span class="pre">the</span> <span class="pre">optimized</span> <span class="pre">LLVM</span> <span class="pre">IR</span> <span class="pre">generated</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">numba_dpex.kernel</span> <span class="pre">decorated</span> <span class="pre">function</span> <span class="pre">to</span> <span class="pre">current</span> <span class="pre">directory,</span> <span class="pre">default</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">ENVIRONMENT</span> <span class="pre">FLAG:</span> <span class="pre">NUMBA_DPEX_DUMP_KERNEL_LLVM]</span></em><a class="headerlink" href="#numba_dpex.core.config.DUMP_KERNEL_LLVM" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.DUMP_KERNEL_LAUNCHER">
-<span class="sig-name descname"><span class="pre">DUMP_KERNEL_LAUNCHER</span></span><a class="headerlink" href="#numba_dpex.core.config.DUMP_KERNEL_LAUNCHER" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DUMP_KERNEL_LAUNCHER</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[int,</span> <span class="pre">Writes</span> <span class="pre">the</span> <span class="pre">optimized</span> <span class="pre">LLVM</span> <span class="pre">IR</span> <span class="pre">generated</span> <span class="pre">for</span> <span class="pre">every</span> <span class="pre">numba_dpex.call_kernel</span> <span class="pre">function</span> <span class="pre">to</span> <span class="pre">current</span> <span class="pre">directory,</span> <span class="pre">default</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">ENVIRONMENT</span> <span class="pre">FLAG:</span> <span class="pre">NUMBA_DPEX_DUMP_KERNEL_LAUNCHER]</span></em><a class="headerlink" href="#numba_dpex.core.config.DUMP_KERNEL_LAUNCHER" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.DEBUG_KERNEL_LAUNCHER">
-<span class="sig-name descname"><span class="pre">DEBUG_KERNEL_LAUNCHER</span></span><a class="headerlink" href="#numba_dpex.core.config.DEBUG_KERNEL_LAUNCHER" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DEBUG_KERNEL_LAUNCHER</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[int,</span> <span class="pre">Enables</span> <span class="pre">debug</span> <span class="pre">printf</span> <span class="pre">messages</span> <span class="pre">inside</span> <span class="pre">the</span> <span class="pre">compiled</span> <span class="pre">module</span> <span class="pre">generated</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">numba_dpex.call_kernel</span> <span class="pre">function.default</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">ENVIRONMENT</span> <span class="pre">FLAG:</span> <span class="pre">NUMBA_DPEX_DEBUG_KERNEL_LAUNCHER]</span></em><a class="headerlink" href="#numba_dpex.core.config.DEBUG_KERNEL_LAUNCHER" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.BUILD_KERNEL_OPTIONS">
-<span class="sig-name descname"><span class="pre">BUILD_KERNEL_OPTIONS</span></span><a class="headerlink" href="#numba_dpex.core.config.BUILD_KERNEL_OPTIONS" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="numba_dpex.core.config.ENABLE_CACHE">
-<span class="sig-name descname"><span class="pre">ENABLE_CACHE</span></span><a class="headerlink" href="#numba_dpex.core.config.ENABLE_CACHE" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="numba_dpex.core.config.CACHE_SIZE">
-<span class="sig-name descname"><span class="pre">CACHE_SIZE</span></span><a class="headerlink" href="#numba_dpex.core.config.CACHE_SIZE" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="numba_dpex.core.config.DEBUG_CACHE">
-<span class="sig-name descname"><span class="pre">DEBUG_CACHE</span></span><a class="headerlink" href="#numba_dpex.core.config.DEBUG_CACHE" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="numba_dpex.core.config.STATIC_LOCAL_MEM_PASS">
-<span class="sig-name descname"><span class="pre">STATIC_LOCAL_MEM_PASS</span></span><a class="headerlink" href="#numba_dpex.core.config.STATIC_LOCAL_MEM_PASS" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="numba_dpex.core.config.TESTING_SKIP_NO_DPNP">
-<span class="sig-name descname"><span class="pre">TESTING_SKIP_NO_DPNP</span></span><a class="headerlink" href="#numba_dpex.core.config.TESTING_SKIP_NO_DPNP" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">BUILD_KERNEL_OPTIONS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[str,</span> <span class="pre">Can</span> <span class="pre">use</span> <span class="pre">used</span> <span class="pre">to</span> <span class="pre">pass</span> <span class="pre">extra</span> <span class="pre">flags</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">device</span> <span class="pre">driver</span> <span class="pre">compiler</span> <span class="pre">during</span> <span class="pre">kernel</span> <span class="pre">compilation.</span> <span class="pre">For</span> <span class="pre">available</span> <span class="pre">OpenCL</span> <span class="pre">options</span> <span class="pre">refer</span> <span class="pre">https://intel.github.io/llvm-docs/clang/ClangCommandLineReference.html#opencl-options,</span> <span class="pre">default</span> <span class="pre">=</span> <span class="pre">&quot;&quot;,</span> <span class="pre">ENVIRONMENT</span> <span class="pre">FLAG:</span> <span class="pre">NUMBA_DPEX_BUILD_KERNEL_OPTIONS]</span></em><a class="headerlink" href="#numba_dpex.core.config.BUILD_KERNEL_OPTIONS" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
@@ -324,27 +315,17 @@
 
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.TESTING_LOG_DEBUGGING">
-<span class="sig-name descname"><span class="pre">TESTING_LOG_DEBUGGING</span></span><a class="headerlink" href="#numba_dpex.core.config.TESTING_LOG_DEBUGGING" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">STATIC_LOCAL_MEM_PASS</span></span><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">TESTING_LOG_DEBUGGING</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[int,</span> <span class="pre">Generates</span> <span class="pre">extra</span> <span class="pre">logs</span> <span class="pre">when</span> <span class="pre">using</span> <span class="pre">gdb</span> <span class="pre">to</span> <span class="pre">debug</span> <span class="pre">a</span> <span class="pre">kernel,</span> <span class="pre">defaults</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">ENVIRONMENT_FLAG:</span> <span class="pre">NUMBA_DPEX_TESTING_LOG_DEBUGGING]</span></em><a class="headerlink" href="#numba_dpex.core.config.TESTING_LOG_DEBUGGING" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.DPEX_OPT">
-<span class="sig-name descname"><span class="pre">DPEX_OPT</span></span><a class="headerlink" href="#numba_dpex.core.config.DPEX_OPT" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DPEX_OPT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[int,</span> <span class="pre">Sets</span> <span class="pre">the</span> <span class="pre">optimization</span> <span class="pre">level</span> <span class="pre">globally</span> <span class="pre">for</span> <span class="pre">every</span> <span class="pre">function</span> <span class="pre">compiled</span> <span class="pre">by</span> <span class="pre">numba-dpex,</span> <span class="pre">default</span> <span class="pre">=</span> <span class="pre">2,</span> <span class="pre">ENVIRONMENT_FLAG:</span> <span class="pre">NUMBA_DPEX_OPT]</span></em><a class="headerlink" href="#numba_dpex.core.config.DPEX_OPT" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="numba_dpex.core.config.INLINE_THRESHOLD">
-<span class="sig-name descname"><span class="pre">INLINE_THRESHOLD</span></span><a class="headerlink" href="#numba_dpex.core.config.INLINE_THRESHOLD" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="numba_dpex.core.config.USE_MLIR">
-<span class="sig-name descname"><span class="pre">USE_MLIR</span></span><a class="headerlink" href="#numba_dpex.core.config.USE_MLIR" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">INLINE_THRESHOLD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated[int,</span> <span class="pre">Sets</span> <span class="pre">the</span> <span class="pre">inlining-threshold</span> <span class="pre">level</span> <span class="pre">globally</span> <span class="pre">for</span> <span class="pre">every</span> <span class="pre">function</span> <span class="pre">compiled</span> <span class="pre">by</span> <span class="pre">numba-dpex.</span> <span class="pre">A</span> <span class="pre">higher</span> <span class="pre">value</span> <span class="pre">enables</span> <span class="pre">more</span> <span class="pre">aggressive</span> <span class="pre">inlining</span> <span class="pre">settings</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">compiler.</span> <span class="pre">Note:</span> <span class="pre">Even</span> <span class="pre">if</span> <span class="pre">NUMBA_DPEX_INLINE_THRESHOLD</span> <span class="pre">is</span> <span class="pre">set</span> <span class="pre">to</span> <span class="pre">0,</span> <span class="pre">many</span> <span class="pre">internal</span> <span class="pre">functions</span> <span class="pre">that</span> <span class="pre">are</span> <span class="pre">attributed</span> <span class="pre">&quot;alwaysinline&quot;</span> <span class="pre">will</span> <span class="pre">still</span> <span class="pre">get</span> <span class="pre">inlined.,</span> <span class="pre">default</span> <span class="pre">=</span> <span class="pre">2,</span> <span class="pre">ENVIRONMENT_FLAG:</span> <span class="pre">NUMBA_DPEX_INLINE_THRESHOLD]</span></em><a class="headerlink" href="#numba_dpex.core.config.INLINE_THRESHOLD" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -391,7 +372,6 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">numba_dpex.core.config</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a></li>
 <li><a class="reference internal" href="#attributes">Attributes</a><ul>
 <li><a class="reference internal" href="#numba_dpex.core.config.SAVE_IR_FILES"><code class="docutils literal notranslate"><span class="pre">SAVE_IR_FILES</span></code></a></li>
 <li><a class="reference internal" href="#numba_dpex.core.config.OFFLOAD_DIAGNOSTICS"><code class="docutils literal notranslate"><span class="pre">OFFLOAD_DIAGNOSTICS</span></code></a></li>
@@ -401,17 +381,10 @@
 <li><a class="reference internal" href="#numba_dpex.core.config.DUMP_KERNEL_LAUNCHER"><code class="docutils literal notranslate"><span class="pre">DUMP_KERNEL_LAUNCHER</span></code></a></li>
 <li><a class="reference internal" href="#numba_dpex.core.config.DEBUG_KERNEL_LAUNCHER"><code class="docutils literal notranslate"><span class="pre">DEBUG_KERNEL_LAUNCHER</span></code></a></li>
 <li><a class="reference internal" href="#numba_dpex.core.config.BUILD_KERNEL_OPTIONS"><code class="docutils literal notranslate"><span class="pre">BUILD_KERNEL_OPTIONS</span></code></a></li>
-<li><a class="reference internal" href="#numba_dpex.core.config.ENABLE_CACHE"><code class="docutils literal notranslate"><span class="pre">ENABLE_CACHE</span></code></a></li>
-<li><a class="reference internal" href="#numba_dpex.core.config.CACHE_SIZE"><code class="docutils literal notranslate"><span class="pre">CACHE_SIZE</span></code></a></li>
-<li><a class="reference internal" href="#numba_dpex.core.config.DEBUG_CACHE"><code class="docutils literal notranslate"><span class="pre">DEBUG_CACHE</span></code></a></li>
-<li><a class="reference internal" href="#numba_dpex.core.config.STATIC_LOCAL_MEM_PASS"><code class="docutils literal notranslate"><span class="pre">STATIC_LOCAL_MEM_PASS</span></code></a></li>
-<li><a class="reference internal" href="#numba_dpex.core.config.TESTING_SKIP_NO_DPNP"><code class="docutils literal notranslate"><span class="pre">TESTING_SKIP_NO_DPNP</span></code></a></li>
 <li><a class="reference internal" href="#numba_dpex.core.config.TESTING_SKIP_NO_DEBUGGING"><code class="docutils literal notranslate"><span class="pre">TESTING_SKIP_NO_DEBUGGING</span></code></a></li>
 <li><a class="reference internal" href="#numba_dpex.core.config.TESTING_LOG_DEBUGGING"><code class="docutils literal notranslate"><span class="pre">TESTING_LOG_DEBUGGING</span></code></a></li>
-<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">STATIC_LOCAL_MEM_PASS</span></code></a></li>
 <li><a class="reference internal" href="#numba_dpex.core.config.DPEX_OPT"><code class="docutils literal notranslate"><span class="pre">DPEX_OPT</span></code></a></li>
 <li><a class="reference internal" href="#numba_dpex.core.config.INLINE_THRESHOLD"><code class="docutils literal notranslate"><span class="pre">INLINE_THRESHOLD</span></code></a></li>
-<li><a class="reference internal" href="#numba_dpex.core.config.USE_MLIR"><code class="docutils literal notranslate"><span class="pre">USE_MLIR</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -425,7 +398,7 @@
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+</div><script src="../../../../_static/documentation_options.js?v=1a1c1d44"></script>
     <script src="../../../../_static/doctools.js?v=888ff710"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/furo.js?v=32e29ea5"></script>

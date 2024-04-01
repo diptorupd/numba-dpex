@@ -1,4 +1,5 @@
 
+
 :orphan:
 
 numba_dpex.core.descriptor
@@ -7,9 +8,10 @@ numba_dpex.core.descriptor
 .. py:module:: numba_dpex.core.descriptor
 
 
+
+
 Overview
 --------
-
 .. list-table:: Classes
    :header-rows: 0
    :widths: auto
@@ -59,8 +61,6 @@ Classes
         - \-
       * - :py:obj:`no_compile <numba_dpex.core.descriptor.DpexTargetOptions.no_compile>`
         - \-
-      * - :py:obj:`use_mlir <numba_dpex.core.descriptor.DpexTargetOptions.use_mlir>`
-        - \-
       * - :py:obj:`inline_threshold <numba_dpex.core.descriptor.DpexTargetOptions.inline_threshold>`
         - \-
 
@@ -85,10 +85,6 @@ Classes
       
 
    .. py:attribute:: no_compile
-
-      
-
-   .. py:attribute:: use_mlir
 
       
 

@@ -15,7 +15,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
-        <title>numba_dpex.core.boxing - numba-dpex documentation</title>
+        <title>numba_dpex.core.boxing - numba-dpex 0.12.0+1605.g013be2e3 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
@@ -134,7 +134,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">numba-dpex  documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">numba-dpex 0.12.0+1605.g013be2e3 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -157,7 +157,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../index.html">
   
   
-  <span class="sidebar-brand-text">numba-dpex  documentation</span>
+  <span class="sidebar-brand-text">numba-dpex 0.12.0+1605.g013be2e3 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -190,7 +190,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../user_guide/debugging/common_issues.html">Common issues and tips</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../user_guide/config.html">Configuration Options for <code class="docutils literal notranslate"><span class="pre">numba-dpex</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -199,16 +198,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../kernel_launcher/index.html">numba_dpex.core.kernel_launcher</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../config_options.html">Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../supported_sycl_features.html">SYCL* and numba-dpex Feature Comparison</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../experimental/index.html">Experimental Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../useful_links.html">Useful links</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../contribution_guide.html">Contribution Guide</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Misc Notes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">List of examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../release-notes.html">Release Notes</a></li>
 </ul>
@@ -262,19 +258,19 @@ passable as arguments to a kernel or dpjit decorated function.</p>
 <td><p>Numba-dpex type corresponding to</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="numba_dpex.core.boxing.NdRange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NdRange</span></code></a></p></td>
-<td><p>A class to encapsulate all kernel launch parameters.</p></td>
+<td><p>Analogue to the <a class="reference external" href="https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#subsubsec:nd-range-class">sycl::nd_range</a> class.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#id3" title="numba_dpex.core.boxing.Range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Range</span></code></a></p></td>
-<td><p>A data structure to encapsulate a single kernel launch parameter.</p></td>
+<td><p>Analogue to the <a class="reference external" href="https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#range-class">sycl::range</a> class.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#numba_dpex.core.boxing.USMNdArray" title="numba_dpex.core.boxing.USMNdArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">USMNdArray</span></code></a></p></td>
 <td><p>A type class to represent dpctl.tensor.usm_ndarray.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#id0" title="numba_dpex.core.boxing.NdRange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NdRange</span></code></a></p></td>
-<td><p>A class to encapsulate all kernel launch parameters.</p></td>
+<td><p>Analogue to the <a class="reference external" href="https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#subsubsec:nd-range-class">sycl::nd_range</a> class.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#id3" title="numba_dpex.core.boxing.Range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Range</span></code></a></p></td>
-<td><p>A data structure to encapsulate a single kernel launch parameter.</p></td>
+<td><p>Analogue to the <a class="reference external" href="https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#range-class">sycl::range</a> class.</p></td>
 </tr>
 </tbody>
 </table>
@@ -326,7 +322,7 @@ passable as arguments to a kernel or dpjit decorated function.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="numba_dpex.core.boxing.NdRange">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NdRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#numba_dpex.core.boxing.NdRange" title="Link to this definition">#</a></dt>
-<dd><p>A class to encapsulate all kernel launch parameters.</p>
+<dd><p>Analogue to the <a class="reference external" href="https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#subsubsec:nd-range-class">sycl::nd_range</a> class.</p>
 <p>The NdRange defines the index space for a work group as well as
 the global index space. It is passed to parallel_for to execute
 a kernel on a set of work items.</p>
@@ -359,7 +355,7 @@ class.</p>
 <dd class="field-odd"><p>A <cite>Range</cite> object defining the index space.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#id3" title="numba_dpex.core.boxing.Range">Range</a></p>
+<dd class="field-even"><p><a class="reference internal" href="#id3" title="numba_dpex.core.boxing.Range"><em>Range</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -373,7 +369,7 @@ class.</p>
 <dd class="field-odd"><p>A <cite>Range</cite> object to specify index space of a work group.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#id3" title="numba_dpex.core.boxing.Range">Range</a></p>
+<dd class="field-even"><p><a class="reference internal" href="#id3" title="numba_dpex.core.boxing.Range"><em>Range</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -384,7 +380,7 @@ class.</p>
 <dt class="sig sig-object py" id="numba_dpex.core.boxing.Range">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Range</span></span><a class="headerlink" href="#numba_dpex.core.boxing.Range" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></p>
-<p>A data structure to encapsulate a single kernel launch parameter.</p>
+<p>Analogue to the <a class="reference external" href="https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#range-class">sycl::range</a> class.</p>
 <p>The range is an abstraction that describes the number of elements
 in each dimension of buffers and index spaces. It can contain
 1, 2, or 3 numbers, depending on the dimensionality of the
@@ -419,7 +415,7 @@ the behavior of <cite>sycl::range</cite>.</p>
 <dd class="field-even"><p>The range of the dimension indexed by <cite>index</cite>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dd class="field-odd"><p><em>int</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -435,7 +431,7 @@ the range of the individual dimensions.</p>
 <dd class="field-odd"><p>The size of a range.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
+<dd class="field-even"><p><em>int</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -487,7 +483,7 @@ the range of the individual dimensions.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="id0">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NdRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
-<dd><p>A class to encapsulate all kernel launch parameters.</p>
+<dd><p>Analogue to the <a class="reference external" href="https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#subsubsec:nd-range-class">sycl::nd_range</a> class.</p>
 <p>The NdRange defines the index space for a work group as well as
 the global index space. It is passed to parallel_for to execute
 a kernel on a set of work items.</p>
@@ -520,7 +516,7 @@ class.</p>
 <dd class="field-odd"><p>A <cite>Range</cite> object defining the index space.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#id3" title="numba_dpex.core.boxing.Range">Range</a></p>
+<dd class="field-even"><p><a class="reference internal" href="#id3" title="numba_dpex.core.boxing.Range"><em>Range</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -534,7 +530,7 @@ class.</p>
 <dd class="field-odd"><p>A <cite>Range</cite> object to specify index space of a work group.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#id3" title="numba_dpex.core.boxing.Range">Range</a></p>
+<dd class="field-even"><p><a class="reference internal" href="#id3" title="numba_dpex.core.boxing.Range"><em>Range</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -545,7 +541,7 @@ class.</p>
 <dt class="sig sig-object py" id="id3">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Range</span></span><a class="headerlink" href="#id3" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">tuple</span></code></p>
-<p>A data structure to encapsulate a single kernel launch parameter.</p>
+<p>Analogue to the <a class="reference external" href="https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#range-class">sycl::range</a> class.</p>
 <p>The range is an abstraction that describes the number of elements
 in each dimension of buffers and index spaces. It can contain
 1, 2, or 3 numbers, depending on the dimensionality of the
@@ -580,7 +576,7 @@ the behavior of <cite>sycl::range</cite>.</p>
 <dd class="field-even"><p>The range of the dimension indexed by <cite>index</cite>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dd class="field-odd"><p><em>int</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -596,7 +592,7 @@ the range of the individual dimensions.</p>
 <dd class="field-odd"><p>The size of a range.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
+<dd class="field-even"><p><em>int</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -769,7 +765,7 @@ object.</p></li>
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+</div><script src="../../../../_static/documentation_options.js?v=1a1c1d44"></script>
     <script src="../../../../_static/doctools.js?v=888ff710"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/furo.js?v=32e29ea5"></script>

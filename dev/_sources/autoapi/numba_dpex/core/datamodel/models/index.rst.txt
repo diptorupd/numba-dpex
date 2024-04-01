@@ -1,4 +1,5 @@
 
+
 :orphan:
 
 numba_dpex.core.datamodel.models
@@ -7,9 +8,10 @@ numba_dpex.core.datamodel.models
 .. py:module:: numba_dpex.core.datamodel.models
 
 
+
+
 Overview
 --------
-
 .. list-table:: Classes
    :header-rows: 0
    :widths: auto
@@ -31,6 +33,14 @@ Overview
      - The numba_dpex data model for a numba_dpex.kernel_api.Range PyObject.
    * - :py:obj:`NdRangeModel <numba_dpex.core.datamodel.models.NdRangeModel>`
      - The numba_dpex data model for a numba_dpex.kernel_api.NdRange PyObject.
+   * - :py:obj:`AtomicRefModel <numba_dpex.core.datamodel.models.AtomicRefModel>`
+     - Data model for AtomicRefType.
+   * - :py:obj:`EmptyStructModel <numba_dpex.core.datamodel.models.EmptyStructModel>`
+     - Data model that does not take space. Intended to be used with types that
+   * - :py:obj:`DpctlMDLocalAccessorModel <numba_dpex.core.datamodel.models.DpctlMDLocalAccessorModel>`
+     - Data model to represent DpctlMDLocalAccessorType.
+   * - :py:obj:`LocalAccessorModel <numba_dpex.core.datamodel.models.LocalAccessorModel>`
+     - Data model for the LocalAccessor type when used in a host-only function.
 
 
 .. list-table:: Function
@@ -48,6 +58,8 @@ Overview
    :class: summarytable
 
    * - :py:obj:`dpex_data_model_manager <numba_dpex.core.datamodel.models.dpex_data_model_manager>`
+     - \-
+   * - :py:obj:`dpjit_data_model_manager <numba_dpex.core.datamodel.models.dpjit_data_model_manager>`
      - \-
 
 
@@ -172,6 +184,48 @@ Classes
 
 
 
+.. py:class:: AtomicRefModel(dmm, fe_type)
+
+   Bases: :py:obj:`numba.core.datamodel.models.StructModel`
+
+   Data model for AtomicRefType.
+
+
+
+
+.. py:class:: EmptyStructModel(dmm, fe_type)
+
+   Bases: :py:obj:`numba.core.datamodel.models.StructModel`
+
+   Data model that does not take space. Intended to be used with types that
+   are presented only at typing stage and not represented physically.
+
+
+
+
+.. py:class:: DpctlMDLocalAccessorModel(dmm, fe_type)
+
+   Bases: :py:obj:`numba.core.datamodel.models.StructModel`
+
+   Data model to represent DpctlMDLocalAccessorType.
+
+   Must be the same structure as
+   dpctl/syclinterface/dpctl_sycl_queue_interface.h::MDLocalAccessor.
+
+   Structure intended to be used only on host side of the kernel call.
+
+
+
+
+.. py:class:: LocalAccessorModel(dmm, fe_type)
+
+   Bases: :py:obj:`numba.core.datamodel.models.StructModel`
+
+   Data model for the LocalAccessor type when used in a host-only function.
+
+
+
+
 Functions
 ---------
 .. py:function:: get_flattened_member_count(ty)
@@ -183,6 +237,10 @@ Functions
 Attributes
 ----------
 .. py:data:: dpex_data_model_manager
+
+   
+
+.. py:data:: dpjit_data_model_manager
 
    
 

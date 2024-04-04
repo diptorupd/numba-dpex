@@ -23,8 +23,6 @@ Overview
    :widths: auto
    :class: summarytable
 
-   * - :py:obj:`Array <numba_dpex.core.types.Array>`
-     - An array type for use inside our compiler pipeline.
    * - :py:obj:`DpctlSyclEvent <numba_dpex.core.types.DpctlSyclEvent>`
      - A Numba type to represent a dpctl.SyclEvent PyObject.
    * - :py:obj:`DpctlSyclQueue <numba_dpex.core.types.DpctlSyclQueue>`
@@ -90,40 +88,6 @@ Overview
 Classes
 -------
 
-.. py:class:: Array(dtype, ndim, layout, readonly=False, name=None, aligned=True, addrspace=None)
-
-   Bases: :py:obj:`Array`
-
-   An array type for use inside our compiler pipeline.
-
-
-   .. rubric:: Overview
-
-
-   .. list-table:: Methods
-      :header-rows: 0
-      :widths: auto
-      :class: summarytable
-
-      * - :py:obj:`copy <numba_dpex.core.types.Array.copy>`\ (dtype, ndim, layout, readonly, addrspace)
-        - \-
-      * - :py:obj:`is_precise <numba_dpex.core.types.Array.is_precise>`\ ()
-        - Whether this type is precise, i.e. can be part of a successful
-
-
-   .. rubric:: Members
-
-   .. py:method:: copy(dtype=None, ndim=None, layout=None, readonly=None, addrspace=None)
-
-
-   .. py:method:: is_precise()
-
-      Whether this type is precise, i.e. can be part of a successful
-      type inference.  Default implementation returns True.
-
-
-
-
 .. py:class:: DpctlSyclEvent
 
    Bases: :py:obj:`numba.types.Type`
@@ -159,7 +123,7 @@ Classes
 
 
 
-.. py:class:: DpnpNdArray(ndim, layout='C', dtype=None, usm_type='device', device=None, queue=None, readonly=False, name=None, aligned=True, addrspace=address_space.GLOBAL)
+.. py:class:: DpnpNdArray(ndim, layout='C', dtype=None, usm_type='device', device=None, queue=None, readonly=False, name=None, aligned=True, addrspace=address_space.GLOBAL.value)
 
    Bases: :py:obj:`numba_dpex.core.types.usm_ndarray_type.USMNdArray`
 
@@ -247,7 +211,7 @@ Classes
 
 
 
-.. py:class:: USMNdArray(ndim, layout='C', dtype=None, usm_type='device', device=None, queue=None, readonly=False, name=None, aligned=True, addrspace=address_space.GLOBAL)
+.. py:class:: USMNdArray(ndim, layout='C', dtype=None, usm_type='device', device=None, queue=None, readonly=False, name=None, aligned=True, addrspace=address_space.GLOBAL.value)
 
    Bases: :py:obj:`numba.core.types.npytypes.Array`
 
